@@ -1,0 +1,53 @@
+{
+    "name": "ikurcubic/wolt-api",
+    "description": "PHP Client for Wolt API",
+    "keywords": ["php", "wolt", "api", "wolt.com"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Kurcubic",
+            "email": "ivan.kurcubic@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^0.3.8",
+        "friendsofphp/php-cs-fixer": "^v3.8.0",
+        "phpstan/phpstan": "^0.12.48",
+        "symfony/var-dumper": "^5.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IvanKurcubic\\WoltAPI\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "lint": "php-cs-fixer fix -v",
+        "test:lint": "php-cs-fixer fix -v --dry-run",
+        "test:types": "phpstan analyse --ansi --memory-limit=0",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
+    }
+}
