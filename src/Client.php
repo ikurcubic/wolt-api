@@ -43,7 +43,7 @@ class Client
      * @return array
      * @throws GuzzleException
      */
-    private function request(string $method, string $endpoint, array $params = []): array
+    private function request(string $method, string $endpoint, array $params = []): ?array
     {
         $params['headers'] = ['Accept' => 'application/json'];
         $params['auth'] = [$this->username, $this->password];
